@@ -3,9 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libraryt</title>
+    <title>Library</title>
+    <link href="./styles.css" rel="stylesheet">
 </head>
 <body>
-    
+    <main>
+        <h1>Library</h1>
+        <div class="library-app">
+            <button id="open-book-form-btn" class="btn large-btn">Add Book</button>
+            <form class="book-form hidden" id="book-form">
+                <div class="book-form-header">
+                    <button id="close-book-form-button" class="close-book-form-button" type="button" aria-label="close">
+                        <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px"><path fill="#F44336" d="M21.5 4.5H26.501V43.5H21.5z" transform="rotate(45.001 24 24)" /><path fill="#F44336" d="M21.5 4.5H26.5V43.501H21.5z" transform="rotate(135.008 24 24)" /></svg>
+                    </button>
+                </div>
+                <div class="book-form-body">
+                    <label class="book-form-label" for="title-input">Title</label>
+                    <input required type="text" class="form-control" id="title-input" value="">
+                    <label class="book-form-label" for="author-input">Author</label>
+                    <input type="text" class="form-control" id="author-input" value="">
+                    <label class="book-form-label" for="pages-input">Pages</label>
+                    <input type="text" class="form-control" id="pages-input" value="">
+                    <label class="book-form-label" for="read-input">Read</label>
+                    <input type="checkbox" class="form-control" id="read-input" value="Read">
+                </div>
+                <div class="book-form-footer">
+                    <button id="add-or-update-book-btn" class="btn large-btn" type="submit">Add Book</button>
+                </div>
+            </form>
+            <dialog id="confirm-close-dialog">
+                <form method="dialog">
+                    <p class="discard-message-text">Discard unsaved changes?</p>
+                    <div class="confirm-close-dialog-btn-container">
+                        <button id="cancel-btn" class="btn">Cancel</button>
+                        <button id="discard-btn" class="btn">Discard</button>
+                    </div>
+                </form>
+            </dialog>
+            <div id="books-container"></div>
+        </div>
+    </main>
+    <script src="./script.js"></script>
 </body>
 </html>
