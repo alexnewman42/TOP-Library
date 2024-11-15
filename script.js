@@ -77,3 +77,18 @@ const deleteBook = (buttonEl) => {
     bookData.splice(dataArrIndex, 1);
     localStorage.setItem("data", JSON.stringify(bookData));
 }
+
+const editBook = (buttonEl) => {
+    const dataArrIndex = bookData.findIndex(
+        (item) => item.id === buttonEl.parentElement.id
+    );
+    currentBook = bookData[dataArrIndex];
+    titleInput.value = currentBook.title;
+    authorInput.value = currentBook.author;
+    pagesInput.value = currentBook.pages;
+    readInput.value = currentBook.read;
+
+    addOrUpdateBookBtn.innerText = "Update Book";
+    bookForm.classList.toggle("hidden");
+}
+
