@@ -92,3 +92,13 @@ const editBook = (buttonEl) => {
     bookForm.classList.toggle("hidden");
 }
 
+const reset = () => {
+    addOrUpdateBookBtn.innerText = "Add Book";
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    readInput.value = "";
+    bookForm.classList.toggle("hidden");
+    currentBook = {};
+}
+
