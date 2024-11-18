@@ -102,3 +102,30 @@ const reset = () => {
     currentBook = {};
 }
 
+if (bookData.length) {
+    updateBookContainer();
+}
+
+openBookFormBtn.addEventListener("click", () => bookForm.classList.toggle("hidden"));
+
+closeBookFormBtn.addEventListener("click", () => {
+    const formInputsContainValues = titleInput.value || authorInput.value || pagesInput.value || readInput.value;
+    const formInputValuesUpdated = titleInput.value !== currentBook.title || authorInput.value !== currentBook.author || pagesInput.value !== currentBook.pages || readInput.value !== currentBook.read;
+
+    if (formInputsContainValues && formInputValuesUpdated) {
+        confirmCloseDialog.showModal();
+    } else {
+        reset();
+    }
+});
+
+cancelBtn.addEventListener("click",  () => {
+    confirmCloseDialog.closest();
+    reset();
+    }
+);
+
+bookForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addOrUpdateBook();
+})
